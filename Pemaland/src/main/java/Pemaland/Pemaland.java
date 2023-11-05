@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.pemaland;
+package Pemaland;
 
 /**
  *
@@ -11,6 +11,6 @@ package com.mycompany.pemaland;
 public class Pemaland {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("estestsetsetsetse!");
     }
 }
