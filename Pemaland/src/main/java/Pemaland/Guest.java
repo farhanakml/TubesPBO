@@ -13,14 +13,14 @@ public class Guest {
     private int Id;
     private int PhoneNo;
     private String Address;
-    private int RoomNo;
+  
 
-    public Guest(String Name, int Id, int PhoneNo, String Address, int RoomNo) {
+    public Guest(String Name, int Id, int PhoneNo, String Address) {
         this.Name = Name;
         this.Id = Id;
         this.PhoneNo = PhoneNo;
         this.Address = Address;
-        this.RoomNo = RoomNo;
+       
     }
 
     public String getName() {
@@ -55,14 +55,7 @@ public class Guest {
         this.Address = Address;
     }
 
-    public int getRoomNo() {
-        return RoomNo;
-    }
 
-    public void setRoomNo(int RoomNo) {
-        this.RoomNo = RoomNo;
-    }
-    
     public void CheckIn(){
         // Test
     }
