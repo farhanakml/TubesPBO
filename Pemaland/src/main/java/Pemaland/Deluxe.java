@@ -7,7 +7,6 @@ package Pemaland;
 import java.util.Date;
 
 /**
- 
  * @author Putri Ayu
  */
 public class Deluxe extends Rooms{
@@ -21,7 +20,6 @@ public class Deluxe extends Rooms{
     public int getRoomSize() {
         return RoomSize;
     }
-
     public void setRoomSize(int RoomSize) {
         this.RoomSize = RoomSize;
     }
