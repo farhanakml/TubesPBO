@@ -19,7 +19,6 @@ public class Deluxe extends Rooms{
         this.Facilities = Facilities;
         
     }
-
     public int getRoomSize() {
         return RoomSize;
     }
