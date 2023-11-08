@@ -19,7 +19,6 @@ public class Standard extends Rooms implements RoomsType{
         this.Facilities = Facilities;
         
     }
-    
     public int getRoomSize() {
         return RoomSize;
     }
