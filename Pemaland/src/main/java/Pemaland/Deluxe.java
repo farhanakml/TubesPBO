@@ -17,7 +17,6 @@ public class Deluxe extends Rooms{
         super( RoomNo, Price,CheckIn,CheckOut,OccupancyLimit,Description,Name, Id, PhoneNo, Address);
         this.RoomSize = RoomSize;
         this.Facilities = Facilities;
-        
     }
     public int getRoomSize() {
         return RoomSize;
