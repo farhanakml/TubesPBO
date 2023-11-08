@@ -16,8 +16,7 @@ public class Standard extends Rooms implements RoomsType{
     public Standard (int RoomSize,String[] Facilities, int RoomNo, int Price,Date CheckIn,Date CheckOut,int OccupancyLimit, String Description, String Name, int Id, int PhoneNo, String Address  ){
         super( RoomNo, Price,CheckIn,CheckOut,OccupancyLimit,Description,Name, Id, PhoneNo, Address);
         this.RoomSize = RoomSize;
-        this.Facilities = Facilities;
-        
+        this.Facilities = Facilities; 
     }
     public int getRoomSize() {
         return RoomSize;
