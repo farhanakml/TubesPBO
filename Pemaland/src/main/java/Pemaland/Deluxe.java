@@ -20,6 +20,7 @@ public class Deluxe extends Rooms{
     public int getRoomSize() {
         return RoomSize;
     }
+    
     public void setRoomSize(int RoomSize) {
         this.RoomSize = RoomSize;
     }
