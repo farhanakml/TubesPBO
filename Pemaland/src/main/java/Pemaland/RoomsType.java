@@ -10,6 +10,4 @@ package Pemaland;
  */
 public interface RoomsType {
     
- 
-    
 }

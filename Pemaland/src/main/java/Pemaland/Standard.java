@@ -24,7 +24,6 @@ public class Standard extends Rooms implements RoomsType{
     public void setRoomSize(int RoomSize) {
         this.RoomSize = RoomSize;
     }
-
     public String[] getFacilities() {
         return Facilities;
     }

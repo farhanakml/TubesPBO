@@ -18,7 +18,6 @@ public class Superior extends Rooms implements RoomsType{
         this.RoomSize = RoomSize;
         this.Facilities = Facilities;
     }
-
     public int getRoomSize() {
         return RoomSize;
     }

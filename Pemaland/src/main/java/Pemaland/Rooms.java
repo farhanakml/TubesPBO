@@ -34,7 +34,6 @@ public class Rooms extends Guest{
         this.booked = false;
    
     }
-
     public int getRoomNo() {
         return RoomNo;
     }
