@@ -7,7 +7,7 @@ package Pemaland;
 import java.util.Date;
 
 /**
- *
+ 
  * @author Putri Ayu
  */
 public class Deluxe extends Rooms{
