@@ -13,7 +13,7 @@ public class Chef extends Guest{
     private String Location;
     
     public Chef(String Name, int Id, String Location){
-        super(Name, Id, 0, "", 0);
+        super(Name, Id, 0, "", 0);test
         this.Location = Location;
     }
 
