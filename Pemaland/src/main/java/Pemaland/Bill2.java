@@ -8,11 +8,11 @@ package Pemaland;
  *
  * @author muham
  */
-public class Bill {
+public class Bill2 {
     private int BillNo;
     private String GuestName;
 
-    public Bill(int BillNo, String GuestName) {
+    public Bill2(int BillNo, String GuestName) {
         this.BillNo = BillNo;
         this.GuestName = GuestName;
     }
