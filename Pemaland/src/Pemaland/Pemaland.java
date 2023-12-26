@@ -148,6 +148,7 @@ public class Pemaland extends javax.swing.JFrame {
     private void RoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsActionPerformed
         Rooms pesankamar = new Rooms();
         pesankamar.setVisible(true);
+        //test
     }//GEN-LAST:event_RoomsActionPerformed
 
     private void FoodsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FoodsActionPerformed
