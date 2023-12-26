@@ -47,7 +47,7 @@ public class Roomss extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Tubes/gambar hote.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pemaland/gambar hote.jpg"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Goudy Old Style", 0, 20)); // NOI18N
         jLabel2.setText("Room Reservation");
