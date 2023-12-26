@@ -48,7 +48,6 @@ public class FoodOrderForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         header.setBackground(new java.awt.Color(107, 73, 49));
 
@@ -65,7 +64,7 @@ public class FoodOrderForm extends javax.swing.JFrame {
         headerLayout.setHorizontalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
-                .addContainerGap(296, Short.MAX_VALUE)
+                .addContainerGap(295, Short.MAX_VALUE)
                 .addGroup(headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addGroup(headerLayout.createSequentialGroup()
@@ -82,8 +81,6 @@ public class FoodOrderForm extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
-
-        getContentPane().add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 120));
 
         jPanel1.setBackground(new java.awt.Color(232, 218, 192));
 
@@ -179,14 +176,39 @@ public class FoodOrderForm extends javax.swing.JFrame {
                 .addGap(27, 27, 27))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 420, 400));
-
-        panel_overlay.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/restaurant.jpg"))); // NOI18N
-        panel_overlay.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 400));
 
-        getContentPane().add(panel_overlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 450, 460));
+        javax.swing.GroupLayout panel_overlayLayout = new javax.swing.GroupLayout(panel_overlay);
+        panel_overlay.setLayout(panel_overlayLayout);
+        panel_overlayLayout.setHorizontalGroup(
+            panel_overlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3)
+        );
+        panel_overlayLayout.setVerticalGroup(
+            panel_overlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_overlayLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(jLabel3))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panel_overlay, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panel_overlay, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
