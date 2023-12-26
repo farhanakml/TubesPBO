@@ -11,6 +11,6 @@ package Pemaland;
 public class Pemaland {
 
     public static void main(String[] args) {
-        System.out.println("estestsetsetsetse!");
+        System.out.println("WELCOME TO PEMALAND!");
     }
 }
