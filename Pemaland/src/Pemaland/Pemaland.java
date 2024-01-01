@@ -83,6 +83,11 @@ public class Pemaland extends javax.swing.JFrame {
         });
 
         PaymentFood.setText("Payment for Food");
+        PaymentFood.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PaymentFoodActionPerformed(evt);
+            }
+        });
 
         PaymentRooms.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         PaymentRooms.setText("Payment for Rooms");
@@ -153,7 +158,16 @@ public class Pemaland extends javax.swing.JFrame {
     private void FoodsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FoodsActionPerformed
         Foods pesanmakan = new Foods();
         pesanmakan.setVisible(true);
+        dispose();
+
     }//GEN-LAST:event_FoodsActionPerformed
+
+    private void PaymentFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaymentFoodActionPerformed
+        // TODO add your handling code here:
+        PaymentFoods tabelfood = new PaymentFoods();
+        tabelfood.setVisible(true);
+        
+    }//GEN-LAST:event_PaymentFoodActionPerformed
 
     /**
      * @param args the command line arguments

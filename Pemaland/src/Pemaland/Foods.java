@@ -3,12 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Pemaland;
+import java.util.HashMap;
+import Database.connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Putri Ayu
  */
 public class Foods extends javax.swing.JFrame {
+    String fullname, appetizer,foods, drinks, dessert;
+    int harga;
+    
+    
 
     /**
      * Creates new form Foods
@@ -56,18 +65,34 @@ public class Foods extends javax.swing.JFrame {
 
         jLabel6.setText("Drinks");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Nachos", "Bruschetta", "Dim sum", "Samosas", " " }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Nasi goreng", "Bubur ayam", "pasta", "steak" }));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Iced Coffee", "Iced Latte", "Iced chocolate", "Apple juice", "Mineral water", " " }));
 
         jLabel7.setText("Dessert");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Panna Cotta", "Chocolate Cake", "Tiramisu", "Macarons" }));
 
         jButton1.setBackground(new java.awt.Color(153, 153, 0));
         jButton1.setText("Confirm");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -146,6 +171,123 @@ public class Foods extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:                                         
+        fullname = jTextField1.getText();
+        appetizer = jComboBox1.getSelectedItem().toString();
+        foods = jComboBox2.getSelectedItem().toString();
+        drinks = jComboBox3.getSelectedItem().toString();
+        dessert = jComboBox4.getSelectedItem().toString();
+
+        // Struktur data harga item Appetizer
+        HashMap<String, Integer> price_appetizer = new HashMap<>();
+        price_appetizer.put("-", 0); // Ganti dengan harga yang sesuai
+        price_appetizer.put("Nachos", 30500);
+        price_appetizer.put("Bruschetta", 36600);
+        price_appetizer.put("Dim sum", 20800);
+        price_appetizer.put("Samosas", 25200);
+
+        // Struktur data harga item foods
+        HashMap<String, Integer> price_foods = new HashMap<>();
+        price_foods.put("-", 0); // Ganti dengan harga yang sesuai
+        price_foods.put("Nasi goreng", 25500);
+        price_foods.put("Bubur ayam", 20000);
+        price_foods.put("pasta", 35000);
+        price_foods.put("steak", 45500);
+
+        // Struktur data harga item drinks
+        HashMap<String, Integer> price_drink = new HashMap<>();
+        price_drink.put("-", 0); // Ganti dengan harga yang sesuai
+        price_drink.put("Iced Coffee", 20000);
+        price_drink.put("Iced Latte", 22000);
+        price_drink.put("Iced chocolate", 21800);
+        price_drink.put("Apple juice", 15000);
+        price_drink.put("Mineral water", 6500);
+
+        // Struktur data harga item dessert
+        HashMap<String, Integer> price_dessert = new HashMap<>();
+        price_dessert.put("-", 0); // Ganti dengan harga yang sesuai
+        price_dessert.put("Panna Cotta", 45700);
+        price_dessert.put("Chocolate Cake", 30500);
+        price_dessert.put("Tiramisu:", 30000);
+        price_dessert.put("Macarons:", 25000);
+
+        // Menghitung total harga
+        int totalHarga = price_appetizer.getOrDefault(appetizer, 0)
+                        + price_foods.getOrDefault(foods, 0)
+                        + price_drink.getOrDefault(drinks, 0)
+                        + price_dessert.getOrDefault(dessert, 0);
+
+        connection dbConn = new connection();
+        java.sql.Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        // Simpan data ke database
+        // Simpan data ke database
+        try {
+            // Mendapatkan koneksi
+            conn = dbConn.getConnection();
+
+            if (conn != null) {
+                // Query untuk menyimpan data
+                String sql = "INSERT INTO  cnntn (nama, appetizer, foods, drinks, dessert, harga) VALUES (?, ?, ?, ?, ?, ?)";
+
+                // Membuat prepared statement
+                pstmt = conn.prepareStatement(sql);
+
+                // Set nilai parameter
+                pstmt.setString(1, fullname);
+                pstmt.setString(2, appetizer);
+                pstmt.setString(3, foods);
+                pstmt.setString(4, drinks);
+                pstmt.setString(5, dessert);
+                pstmt.setInt(6, totalHarga); // Menyimpan total harga ke database
+
+                // Melakukan penambahan data ke dalam database
+                int rowAffected = pstmt.executeUpdate();
+                if (rowAffected > 0) {
+                    JOptionPane.showMessageDialog(null, "Total Harga Pesanan: " + totalHarga);
+                    // Tutup jendela ini dan kembali ke halaman sebelumnya
+                    dispose();
+                    Pemaland pemaland = new Pemaland();
+                    pemaland.setVisible(true); 
+                }
+            } else {
+                // Handle jika koneksi tidak berhasil
+                JOptionPane.showMessageDialog(null, "Koneksi ke database gagal!");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            // Tampilkan pesan error
+        } finally {
+            // Tutup semua sumber daya
+            if (pstmt != null) {
+                try {
+                        pstmt.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

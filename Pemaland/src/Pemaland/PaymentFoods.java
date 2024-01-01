@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Pemaland;
+import Database.connection;
+import java.sql.PreparedStatement;
+import javax.swing.table.DefaultTableModel;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -15,6 +20,7 @@ public class PaymentFoods extends javax.swing.JFrame {
      */
     public PaymentFoods() {
         initComponents();
+        isiTabel();
     }
 
     /**
@@ -58,15 +64,23 @@ public class PaymentFoods extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id", "nama", "appetizer", "foods", "drinks", "dessert", "Total harga"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -135,6 +149,54 @@ public class PaymentFoods extends javax.swing.JFrame {
             }
         });
     }
+    private void isiTabel() {
+          DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        // Mengambil data dari database
+        // Lakukan koneksi ke database
+        connection dbConn = new connection();
+        java.sql.Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+         
+            conn = dbConn.getConnection();
+
+            // Query untuk mengambil data pesanan dari database
+            String sql = "SELECT * FROM cnntn"; 
+
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            // Bersihkan isi tabel sebelum menambahkan data baru
+            model.setRowCount(0);
+
+
+            while (rs.next()) {
+                Object[] row = {
+                    rs.getInt("id"), 
+                    rs.getString("nama"),
+                    rs.getString("appetizer"), 
+                    rs.getString("foods"), 
+                    rs.getString("drinks"), 
+                    rs.getString("dessert"), 
+                    rs.getInt("harga") 
+                };
+                model.addRow(row);
+            }
+
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+      
+    
+    
+       
+    
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
