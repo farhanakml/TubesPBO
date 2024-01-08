@@ -156,7 +156,7 @@ public class HistoryFood extends javax.swing.JFrame {
             conn = dbConn.getConnection();
 
             // Query untuk mengambil data pesanan dari database
-            String sql = "SELECT * FROM cnntn"; 
+            String sql = "SELECT * FROM food_order"; 
 
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
@@ -164,19 +164,22 @@ public class HistoryFood extends javax.swing.JFrame {
             // Bersihkan isi tabel sebelum menambahkan data baru
             model.setRowCount(0);
 
-
-            while (rs.next()) {
-                Object[] row = {
-                    rs.getInt("no"), 
-                    rs.getString("nama"),
-                    rs.getString("appetizer"), 
-                    rs.getString("foods"), 
-                    rs.getString("drinks"), 
-                    rs.getString("dessert"), 
-                    rs.getInt("harga") 
-                };
-                model.addRow(row);
-            }
+            if (!rs.isBeforeFirst()) {
+                        System.out.println("ResultSet is empty");
+                    } else {
+                        while (rs.next()) {
+                            Object[] row = {
+                                rs.getInt("id"), 
+                                rs.getString("Fullname"),
+                                rs.getString("Appetizer"), 
+                                rs.getString("Foods"), 
+                                rs.getString("Drinks"), 
+                                rs.getString("Dessert"), 
+                                rs.getInt("Harga") 
+                            };
+                            model.addRow(row);
+                        }
+                    }
 
             conn.close();
         } catch (SQLException e) {

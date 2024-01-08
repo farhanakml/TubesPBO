@@ -56,21 +56,20 @@ public class HistoryRoom extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(336, 336, 336)
-                        .addComponent(jLabel2)))
-                .addContainerGap(333, Short.MAX_VALUE))
+                .addGap(300, 300, 300)
+                .addComponent(jLabel1)
+                .addContainerGap(300, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(363, 363, 363))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
@@ -154,7 +153,7 @@ public class HistoryRoom extends javax.swing.JFrame {
             conn = dbConn.getConnection();
 
             // Query untuk mengambil data pesanan dari database
-            String sql = "SELECT * FROM cnntn"; 
+            String sql = "SELECT * FROM room_reservation"; 
 
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
@@ -165,13 +164,13 @@ public class HistoryRoom extends javax.swing.JFrame {
 
             while (rs.next()) {
                 Object[] row = {
-                    rs.getInt("no"), 
-                    rs.getString("fullname"),
-                    rs.getString("phoneNumber"), 
-                    rs.getString("roomType"), 
-                    rs.getString("checkin"), 
-                    rs.getString("checkout"), 
-                    rs.getInt("harga") 
+                    rs.getInt("id"), 
+                    rs.getString("Fullname"),
+                    rs.getString("Phone"), 
+                    rs.getString("RoomType"), 
+                    rs.getString("CheckIn"), 
+                    rs.getString("CheckOut"), 
+                    rs.getInt("Harga") 
                 };
                 model.addRow(row);
             }
