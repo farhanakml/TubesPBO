@@ -10,6 +10,9 @@ Pemaland Hotel adalah sebuah aplikasi GUI untuk mencatat dan mengatur penerimaan
 | 1301213453  | Putri Ayu Sedyo Mukti     |
 
 ## Installation
+**Requirements**
+  * Java 17.0+
+  * Windows, Linux, and macOS
 
 **Clone Repository**
 ```
