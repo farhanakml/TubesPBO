@@ -4,6 +4,12 @@
  */
 package Pemaland;
 
+import Database.connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Putri Ayu
@@ -15,6 +21,7 @@ public class HistoryRoom extends javax.swing.JFrame {
      */
     public HistoryRoom() {
         initComponents();
+        TabelRoom();
     }
 
     /**
@@ -134,6 +141,47 @@ public class HistoryRoom extends javax.swing.JFrame {
             }
         });
     }
+          private void TabelRoom() {
+          DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        // Mengambil data dari database
+        // Lakukan koneksi ke database
+        connection dbConn = new connection();
+        java.sql.Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+         
+            conn = dbConn.getConnection();
+
+            // Query untuk mengambil data pesanan dari database
+            String sql = "SELECT * FROM cnntn"; 
+
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            // Bersihkan isi tabel sebelum menambahkan data baru
+            model.setRowCount(0);
+
+
+            while (rs.next()) {
+                Object[] row = {
+                    rs.getInt("no"), 
+                    rs.getString("fullname"),
+                    rs.getString("phoneNumber"), 
+                    rs.getString("roomType"), 
+                    rs.getString("checkin"), 
+                    rs.getString("checkout"), 
+                    rs.getInt("harga") 
+                };
+                model.addRow(row);
+            }
+
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

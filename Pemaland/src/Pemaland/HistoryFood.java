@@ -21,7 +21,7 @@ public class HistoryFood extends javax.swing.JFrame {
      */
     public HistoryFood() {
         initComponents();
-        Tabel();
+        TabelFood();
     }
 
     /**
@@ -143,7 +143,7 @@ public class HistoryFood extends javax.swing.JFrame {
             }
         });
     }
-       private void Tabel() {
+       private void TabelFood() {
           DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         // Mengambil data dari database
         // Lakukan koneksi ke database
