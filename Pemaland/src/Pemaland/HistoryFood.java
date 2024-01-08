@@ -4,6 +4,12 @@
  */
 package Pemaland;
 
+import Database.connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Putri Ayu
@@ -15,6 +21,7 @@ public class HistoryFood extends javax.swing.JFrame {
      */
     public HistoryFood() {
         initComponents();
+        Tabel();
     }
 
     /**
@@ -94,9 +101,9 @@ public class HistoryFood extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -135,6 +142,46 @@ public class HistoryFood extends javax.swing.JFrame {
                 new HistoryFood().setVisible(true);
             }
         });
+    }
+       private void Tabel() {
+          DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        // Mengambil data dari database
+        // Lakukan koneksi ke database
+        connection dbConn = new connection();
+        java.sql.Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+         
+            conn = dbConn.getConnection();
+
+            // Query untuk mengambil data pesanan dari database
+            String sql = "SELECT * FROM cnntn"; 
+
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+
+            // Bersihkan isi tabel sebelum menambahkan data baru
+            model.setRowCount(0);
+
+
+            while (rs.next()) {
+                Object[] row = {
+                    rs.getInt("no"), 
+                    rs.getString("nama"),
+                    rs.getString("appetizer"), 
+                    rs.getString("foods"), 
+                    rs.getString("drinks"), 
+                    rs.getString("dessert"), 
+                    rs.getInt("harga") 
+                };
+                model.addRow(row);
+            }
+
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

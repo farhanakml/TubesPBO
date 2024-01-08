@@ -164,7 +164,7 @@ public class Pemaland extends javax.swing.JFrame {
 
     private void PaymentFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaymentFoodActionPerformed
         // TODO add your handling code here:
-        PaymentFoods tabelfood = new PaymentFoods();
+        HistoryFood tabelfood = new HistoryFood();
         tabelfood.setVisible(true);
         
     }//GEN-LAST:event_PaymentFoodActionPerformed
