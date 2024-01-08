@@ -10,6 +10,7 @@ package Pemaland;
  */
 public class Guest {
     public String Fullname;
+    
    
  
     public Guest(String Fullname) {
