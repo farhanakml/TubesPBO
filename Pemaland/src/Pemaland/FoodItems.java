@@ -23,21 +23,23 @@ public class FoodItems extends Guest {
         this.Drinks = Drinks;
         this.Dessert = Dessert;
         this.Harga = Harga;
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-}
+    }
+
+    public String getFullname() {
+        return Fullname;
+    }
+
+    public void setFullname(String Fullname) {
+        this.Fullname = Fullname;
+    }
+ 
+    
+//    public void insert_food() throws SQLException{
+//        connection db = new connection();
+//        String sql = "INSERT INTO food_order (fullname, appetizer, foods, drinks, dessert, harga) VALUES ('" + this.getFullname() + "','" + this.getAppetizer() + "','" + this.getFoods() + "','" + this.getDrinks() + "','" + this.getHarga() + "')";
+//        db.query(sql);
+//}
+
 
     public String getAppetizer() {
         return Appetizer;
