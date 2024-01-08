@@ -298,7 +298,14 @@ public class RoomHotelForm extends javax.swing.JFrame {
         String thnCheckout = BoxTahunCheckout.getSelectedItem().toString();
         String Checkin = tglCheckin + ' ' + blnCheckin + ' ' + thnCheckin;
         String Checkout = tglCheckout + ' ' + blnCheckout + ' ' + thnCheckout;
-        int harga = 1000000;
+        int harga = 0;
+        if (roomtype == "Standard"){
+            harga = (Integer.parseInt(tglCheckout) - Integer.parseInt(tglCheckin)) * 100000;
+        }else if(roomtype == "Superior"){
+            harga = (Integer.parseInt(tglCheckout) - Integer.parseInt(tglCheckin)) * 300000;
+        }else{
+            harga = (Integer.parseInt(tglCheckout) - Integer.parseInt(tglCheckin)) * 500000;
+        }
      
         Database.connection dbConn = new Database.connection();
         java.sql.Connection conn = null;
