@@ -9,41 +9,32 @@ import java.util.Date;
  *
  * @author muham
  */
+// Extend kelas Guest 
 public class RoomItems extends Guest{
+    // Variabel atribut private
     private String Phone;
     private String RoomType;
     private String CheckIn;
     private String CheckOut;
     private int Harga;
-    private int Price;
     
     
-    
+    // Konstruktor
     public RoomItems(String Fullname, String Phone, String RoomType, String CheckIn, String CheckOut, int Harga  ){
        
+        // Konstruktor superClass
         super(Fullname);
+        // Inisialisasi Variable instan
         this.Phone = Phone;
         this.RoomType = RoomType;
         this.CheckIn = CheckIn;
         this.CheckOut = CheckOut;
         this.Harga = Harga;
-   
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    }
 
+    }
+    
+    // Getter dan Setter
+    
     public String getFullname() {
         return Fullname;
     }
@@ -91,18 +82,5 @@ public class RoomItems extends Guest{
     public void setHarga(int Harga) {
         this.Harga = Harga;
     }
-
-    public int getPrice() {
-        return Price;
-    }
-
-    public void setPrice(int Price) {
-        this.Price = Price;
-    }
-  
-   
-  
-
-
     
 }

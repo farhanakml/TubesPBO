@@ -8,7 +8,9 @@ package Pemaland;
  *
  * @author muham
  */
+// Extends Guest
 public class FoodItems extends Guest {
+    // Atribut Private Foods
     private String Appetizer;
     private String Foods;
     private String Drinks;
@@ -17,7 +19,9 @@ public class FoodItems extends Guest {
     
     public FoodItems(String Fullname, String Appetizer, String Foods, String Drinks, String Dessert, int Harga  ){
       
+        // Inisialisasi variabel Superclass
         super(Fullname);
+        // Inisialisasi variabel
         this.Appetizer = Appetizer;
         this.Foods = Foods;
         this.Drinks = Drinks;
@@ -25,6 +29,7 @@ public class FoodItems extends Guest {
         this.Harga = Harga;
     }
 
+    // Getter dan Setter
     public String getFullname() {
         return Fullname;
     }
@@ -33,13 +38,6 @@ public class FoodItems extends Guest {
         this.Fullname = Fullname;
     }
  
-    
-//    public void insert_food() throws SQLException{
-//        connection db = new connection();
-//        String sql = "INSERT INTO food_order (fullname, appetizer, foods, drinks, dessert, harga) VALUES ('" + this.getFullname() + "','" + this.getAppetizer() + "','" + this.getFoods() + "','" + this.getDrinks() + "','" + this.getHarga() + "')";
-//        db.query(sql);
-//}
-
 
     public String getAppetizer() {
         return Appetizer;
