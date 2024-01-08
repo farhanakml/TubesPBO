@@ -62,7 +62,7 @@ public class FoodOrderForm extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(219, 206, 182));
         jButton2.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(102, 102, 102));
+        jButton2.setForeground(new java.awt.Color(107, 73, 49));
         jButton2.setText("Home");
         jButton2.setAutoscrolls(true);
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
