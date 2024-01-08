@@ -96,6 +96,11 @@ public class Pemaland extends javax.swing.JFrame {
                 PaymentRoomsMouseWheelMoved(evt);
             }
         });
+        PaymentRooms.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PaymentRoomsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,23 +156,30 @@ public class Pemaland extends javax.swing.JFrame {
     }//GEN-LAST:event_PaymentRoomsMouseWheelMoved
 
     private void RoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsActionPerformed
-        //Room pesankamar = new Room();
-        //pesankamar.setVisible(true);
+        FoodOrderForm pesankamar = new FoodOrderForm();
+        pesankamar.setVisible(true);
+        dispose();
     }//GEN-LAST:event_RoomsActionPerformed
 
     private void FoodsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FoodsActionPerformed
-        Foods pesanmakan = new Foods();
+        FoodOrderForm pesanmakan = new FoodOrderForm();
         pesanmakan.setVisible(true);
         dispose();
 
     }//GEN-LAST:event_FoodsActionPerformed
 
     private void PaymentFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaymentFoodActionPerformed
-        // TODO add your handling code here:
         HistoryFood tabelfood = new HistoryFood();
         tabelfood.setVisible(true);
+        dispose();
         
     }//GEN-LAST:event_PaymentFoodActionPerformed
+
+    private void PaymentRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaymentRoomsActionPerformed
+        HistoryRoom tabelroom = new HistoryRoom();
+        tabelroom.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_PaymentRoomsActionPerformed
 
     /**
      * @param args the command line arguments
