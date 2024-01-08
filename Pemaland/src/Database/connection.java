@@ -16,7 +16,7 @@ public class connection {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Membuat koneksi ke database
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pbo?zeroDateTimeBehavior=CONVERT_TO_NULL", "root", "");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pemaland?zeroDateTimeBehavior=CONVERT_TO_NULL", "root", "");
         } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, "Database connection failed: " + e.getMessage());
         }

@@ -257,7 +257,7 @@ public class Foods extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Total Harga Pesanan: " + totalHarga);
                     // Tutup jendela ini dan kembali ke halaman sebelumnya
                     dispose();
-                    Pemaland pemaland = new Pemaland();
+                    Homepage pemaland = new Homepage();
                     pemaland.setVisible(true); 
                 }
             } else {

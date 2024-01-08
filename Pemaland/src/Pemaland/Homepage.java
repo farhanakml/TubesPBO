@@ -8,12 +8,12 @@ package Pemaland;
  *
  * @author Putri Ayu
  */
-public class Pemaland extends javax.swing.JFrame {
+public class Homepage extends javax.swing.JFrame {
 
     /**
      * Creates new form MainMenu
      */
-    public Pemaland() {
+    public Homepage() {
         initComponents();
     }
 
@@ -45,8 +45,8 @@ public class Pemaland extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(107, 73, 49));
 
-        jLabel2.setFont(new java.awt.Font("Lucida Fax", 1, 30)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(232, 218, 192));
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Pemaland Hotel");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -66,7 +66,9 @@ public class Pemaland extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Rooms.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Rooms.setBackground(new java.awt.Color(107, 73, 49));
+        Rooms.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        Rooms.setForeground(new java.awt.Color(255, 255, 255));
         Rooms.setText("Rooms");
         Rooms.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +76,9 @@ public class Pemaland extends javax.swing.JFrame {
             }
         });
 
-        Foods.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Foods.setBackground(new java.awt.Color(107, 73, 49));
+        Foods.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        Foods.setForeground(new java.awt.Color(255, 255, 255));
         Foods.setText("Foods");
         Foods.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,14 +86,20 @@ public class Pemaland extends javax.swing.JFrame {
             }
         });
 
+        PaymentFood.setBackground(new java.awt.Color(107, 73, 49));
+        PaymentFood.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        PaymentFood.setForeground(new java.awt.Color(255, 255, 255));
         PaymentFood.setText("Payment for Food");
+        PaymentFood.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         PaymentFood.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PaymentFoodActionPerformed(evt);
             }
         });
 
-        PaymentRooms.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        PaymentRooms.setBackground(new java.awt.Color(107, 73, 49));
+        PaymentRooms.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        PaymentRooms.setForeground(new java.awt.Color(255, 255, 255));
         PaymentRooms.setText("Payment for Rooms");
         PaymentRooms.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
@@ -156,7 +166,7 @@ public class Pemaland extends javax.swing.JFrame {
     }//GEN-LAST:event_PaymentRoomsMouseWheelMoved
 
     private void RoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsActionPerformed
-        FoodOrderForm pesankamar = new FoodOrderForm();
+        RoomHotelForm pesankamar = new RoomHotelForm();
         pesankamar.setVisible(true);
         dispose();
     }//GEN-LAST:event_RoomsActionPerformed
@@ -198,14 +208,30 @@ public class Pemaland extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Pemaland.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Homepage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Pemaland.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Homepage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Pemaland.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Homepage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Pemaland.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Homepage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -226,7 +252,7 @@ public class Pemaland extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pemaland().setVisible(true);
+                new Homepage().setVisible(true);
             }
         });
     }
