@@ -5,6 +5,10 @@
 package Pemaland;
 
 import java.awt.Color;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -283,6 +287,49 @@ public class RoomHotelForm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        String nama = BoxNama.getText();
+        String nomor = BoxNomor.getText();
+        String roomtype = BoxRoomtype.getSelectedItem().toString();
+        String tglCheckin = BoxTanggalCheckin.getSelectedItem().toString();
+        String blnCheckin = BoxBulanCheckin.getSelectedItem().toString();
+        String thnCheckin = BoxTahunCheckin.getSelectedItem().toString();
+        String tglCheckout = BoxTanggalCheckout.getSelectedItem().toString();
+        String blnCheckout = BoxBulanCheckout.getSelectedItem().toString();
+        String thnCheckout = BoxTahunCheckout.getSelectedItem().toString();
+        String Checkin = tglCheckin + ' ' + blnCheckin + ' ' + thnCheckin;
+        String Checkout = tglCheckout + ' ' + blnCheckout + ' ' + thnCheckout;
+        int harga = 1000000;
+     
+        Database.connection dbConn = new Database.connection();
+        java.sql.Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+         
+            conn = dbConn.getConnection();
+
+            // Query untuk mengambil data pesanan dari database
+            String sql = "INSERT INTO room_reservation (Fullname, Phone, RoomType, CheckIn, CheckOut, Harga) VALUES ('" + nama + "','" + nomor + "','" + roomtype + "','" + Checkin + "','" + Checkout + "','" + harga + "')";
+
+            pstmt = conn.prepareStatement(sql);
+            int rowsInserted = pstmt.executeUpdate();
+
+            if (rowsInserted > 0) {
+                int choice = JOptionPane.showConfirmDialog(this, "Are you sure you want to order this?", "Confirmation", JOptionPane.OK_CANCEL_OPTION);
+                if (choice == JOptionPane.OK_OPTION){
+                    JOptionPane.showMessageDialog(this, "A new booking was inserted successfully!", "Success", JOptionPane.PLAIN_MESSAGE);
+                    Homepage Beranda = new Homepage();
+                    Beranda.setVisible(true);
+                    dispose();
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Failed to insert the booking.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

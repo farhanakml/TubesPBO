@@ -10,6 +10,7 @@ import Database.connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -287,9 +288,15 @@ public class FoodOrderForm extends javax.swing.JFrame {
             int rowsInserted = pstmt.executeUpdate();
 
             if (rowsInserted > 0) {
-                System.out.println("A new order was inserted successfully!");
+                int choice = JOptionPane.showConfirmDialog(this, "Are you sure you want to order this?", "Confirmation", JOptionPane.OK_CANCEL_OPTION);
+                if (choice == JOptionPane.OK_OPTION){
+                    JOptionPane.showMessageDialog(this, "A new order was inserted successfully!", "Success", JOptionPane.PLAIN_MESSAGE);
+                    Homepage Beranda = new Homepage();
+                    Beranda.setVisible(true);
+                    dispose();
+                }
             } else {
-                System.out.println("Failed to insert the order.");
+                JOptionPane.showMessageDialog(this, "Failed to insert the order.", "Error", JOptionPane.ERROR_MESSAGE);
             }
 
             conn.close();
