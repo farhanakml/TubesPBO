@@ -4,7 +4,13 @@
  */
 package Pemaland;
 
+
 import java.awt.Color;
+import Database.connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -264,8 +270,32 @@ public class FoodOrderForm extends javax.swing.JFrame {
      String appetizer = BoxAppetizer.getSelectedItem().toString();
      String dessert = BoxDessert.getSelectedItem().toString();
      String drink = BoxDrink.getSelectedItem().toString();
+     int harga = 100000;
      
-     
+     Database.connection dbConn = new Database.connection();
+        java.sql.Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        try {
+         
+            conn = dbConn.getConnection();
+
+            // Query untuk mengambil data pesanan dari database
+            String sql = "INSERT INTO food_order (Fullname, Appetizer, Foods, Drinks, Dessert, Harga) VALUES ('" + nama + "','" + appetizer + "','" + food + "','" + drink + "','" + dessert + "','" + harga + "')";
+
+            pstmt = conn.prepareStatement(sql);
+            int rowsInserted = pstmt.executeUpdate();
+
+            if (rowsInserted > 0) {
+                System.out.println("A new order was inserted successfully!");
+            } else {
+                System.out.println("Failed to insert the order.");
+            }
+
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
