@@ -8,22 +8,74 @@ package Pemaland;
  *
  * @author muham
  */
-public class FoodItems {
-    private String Menu;
+public class FoodItems extends Guest {
+    private String Appetizer;
+    private String Foods;
+    private String Drinks;
+    private String Dessert;
+    private int Harga;
     
-    public FoodItems(String Menu){
-        this.Menu = Menu;
+    public FoodItems(String Fullname, String Appetizer, String Foods, String Drinks, String Dessert, int Harga  ){
+      
+        super(Fullname);
+        this.Appetizer = Appetizer;
+        this.Foods = Foods;
+        this.Drinks = Drinks;
+        this.Dessert = Dessert;
+        this.Harga = Harga;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+}
+
+    public String getAppetizer() {
+        return Appetizer;
     }
 
-    public String getMenu() {
-        return Menu;
+    public void setAppetizer(String Appetizer) {
+        this.Appetizer = Appetizer;
     }
 
-    public void setMenu(String Menu) {
-        this.Menu = Menu;
+    public String getFoods() {
+        return Foods;
     }
-    
-    public void Menu(String Name, String Menu){
-        // Test
+
+    public void setFoods(String Foods) {
+        this.Foods = Foods;
+    }
+
+    public String getDrinks() {
+        return Drinks;
+    }
+
+    public void setDrinks(String Drinks) {
+        this.Drinks = Drinks;
+    }
+
+    public String getDessert() {
+        return Dessert;
+    }
+
+    public void setDessert(String Dessert) {
+        this.Dessert = Dessert;
+    }
+
+    public int getHarga() {
+        return Harga;
+    }
+
+    public void setHarga(int Harga) {
+        this.Harga = Harga;
     }
 }

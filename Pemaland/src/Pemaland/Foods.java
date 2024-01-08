@@ -4,7 +4,6 @@
  */
 package Pemaland;
 import java.util.HashMap;
-import Database.connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;

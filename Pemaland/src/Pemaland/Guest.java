@@ -9,69 +9,10 @@ package Pemaland;
  * @author muham
  */
 public class Guest {
-    private String Name;
-    private int Id;
-    private int PhoneNo;
-    private String Address;
+    public String Fullname;
+   
  
-    public Guest(String Name, int Id, int PhoneNo, String Address) {
-        this.Name = Name;
-        this.Id = Id;
-        this.PhoneNo = PhoneNo;
-        this.Address = Address;
-       
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String Name) {
-        this.Name = Name;
-    }
-
-    public int getId() {
-        return Id;
-    }
-
-    public void setId(int Id) {
-        this.Id = Id;
-    }
-
-    public int getPhoneNo() {
-        return PhoneNo;
-    }
-
-    public void setPhoneNo(int PhoneNo) {
-        this.PhoneNo = PhoneNo;
-    }
-
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String Address) {
-        this.Address = Address;
-    }
-
-
-    public void CheckIn(){
-        // Test
-    }
-    
-    public void CheckOout(){
-        // Test
-    }
-    
-    public void PayBill(){
-        // Test
-    }
-    
-    public void OrderFood(){
-        // Test
-    }
-    
-    public void SubmitFeedback(){
-        // Test
-    }
+    public Guest(String Fullname) {
+      this.Fullname = Fullname;
+}
 }
